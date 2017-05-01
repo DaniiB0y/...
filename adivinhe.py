@@ -16,4 +16,4 @@ while p != numero and tentativas <= 10: #enquanto o palpite for diferente do num
 	elif p > numero:
 		print "Digite um valor menor abiguinhu!"
 	else:
-		print "Ué"				
+		print ""				
