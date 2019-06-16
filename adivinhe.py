@@ -1,19 +1,28 @@
-# -*- coding: utf-8 -*-
 from random import randint
-p = input('Digite um numero!: ') #Palpite
-babaca = input('Digite o numero de randomizaçoes!: ') #Randomizacoes
-tentativas = 1 #Tentativas
-numero = randint(1, babaca) #Numero certo
-while p != numero and tentativas <= 10: #enquanto o palpite for diferente do numero e tentativas for menor que 10
-	print "errou"
-	print tentativas, " Tentativas! só restam", 10 - tentativas + 1
-	p = input('Digite um numero!: ') #Renova o valor do numero
-	tentativas += 1
-	if p == numero:
-		print "Acertou mizeravi!, Fim do jogo!", tentativas,"Tentivas!"
-	elif p < numero:
-		print "Digite um valor maior abiguinhu!"
-	elif p > numero:
-		print "Digite um valor menor abiguinhu!"
-	else:
-		print ""				
+import platform
+import os
+
+resp = "s"
+while resp == "s" or "S" or "Sim" or "sim":
+    print('Bem vindo ao meu jogo em python :), você tem 10 tentativas! \n aproveite!! \n github.com/DaniiB0y')
+    tentativas = 10
+    numeros = int(input('Deseja randomizar entre quantos numeros? ~> '))
+    numero_certo = randint(1, numeros)
+    numero = 0 
+    while tentativas > 1 and numero != numero_certo:
+        numero = int(input('Acha que é qual numero? ~> '))
+        tentativas -= 1
+        if numero < numero_certo:
+            print('É maior! só restam %s tentativas' % tentativas)
+        elif numero > numero_certo:
+            print('É menor! só restam %s tentativas' % tentativas)
+        elif numero == numero_certo:
+            print('Parabéns! você acertou com %s tentativas!' % tentativas)
+            resp = input('Você deseja continuar? Digite s se sim! ~>')
+            if platform.system() == 'Windows':
+                os.system('cls')
+            elif platform.system() == 'Linux':
+                os.system('clear')
+            else:
+                os.system('clear')
+            
